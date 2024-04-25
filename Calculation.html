@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GRADING SYSTEM</title>
+    <style>
+
+       
+
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'poppins',sans-serif;
+        }
+
+        body{
+            width: 100%;
+            height: 250px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+          
+            background-color: black;
+        }
+
+        .calculator{
+            border: 2px solid black;
+            padding: 20px;
+            border-radius: 16px;
+            box-shadow: 0px 3px 15px rgba(113, 115, 119, 0.5);
+            margin-top: 30%;
+            background-color: #3a3a3a;
+            
+        }
+
+        #n{
+           width: 150px;
+           margin: 5px;
+           background: white;
+           font-size: 50px;
+           text-align: right;
+           box-shadow: 0px 3px 15px rgbs(84, 84, 84, 0.1);  
+        }
+
+        .btn{
+            border: none;
+            margin: 10px;
+            border-radius: 50%;
+            color: white;
+            font-size: 50px;
+            box-shadow: -8px -8px 15px rgba(255, 255, 255, 0.1);
+            cursor: pointer;
+        }
+
+        #a{
+            font-size: 30px;
+            border-radius: 15px;
+        }
+
+
+    
+
+
+        .Grade{
+            text-align: center;
+            background-color: gray;
+            width: 50%;
+            height: 150%;
+           margin-left: 100px;
+            margin-top: 400px;
+            border: 5px solid white;
+
+
+
+        }
+
+        #bookOne{
+            border: 3px solid black;
+        }
+
+        #bookTwo{
+            border: 3px solid black;  
+        }
+
+        #bookThree{
+            border: 3px solid black;
+        }
+        #bookFour{
+            border: 3px solid black;
+        }
+
+        #bookFive{
+            border: 3px solid black;
+        }
+
+
+
+
+      
+
+    </style>
+</head>
+<body>
+    <div class="calculator">
+
+        <input type="text" id="n">
+        <br>
+        
+        <div class="btn">
+        <button type="button" id="a" onclick="setinput('1'), bag()">1</button>
+        <button type="button" id="a" onclick="setinput(2)">2</button>
+        <button type="button" id="a" onclick="setinput(3)">3</button>
+        <button type="button" id="a" onclick="setinput(4)">4</button>
+        <button type="button" id="a" onclick="setinput(5)">5</button>
+        
+    
+    
+        </div>
+       
+        <div class="btn">
+            <button type="button" id="a" onclick="setinput(6)">6</button>
+            <button type="button" id="a" onclick="setinput(7)">7</button>
+            <button type="button" id="a" onclick="setinput(8)">8</button>
+            <button type="button" id="a" onclick="setinput(9)">9</button>
+            <button type="button" id="a" onclick="setinput(0)">0</button>
+    
+    
+        </div>
+      
+        <div class="btn">
+            <button type="button" id="a" onclick="setop('+')">+</button>
+            <button type="button" id="a" onclick="setop('-')">-</button>
+            <button type="button" id="a" onclick="setop('*')">*</button>
+            <button type="button" id="a" onclick="setop('/')">/</button>
+            <button type="button" id="a" onclick="setop('%')">%</button>
+    
+    
+        </div>
+    
+        <div class="btn">
+            <button type="button" id="a" onclick="cal()">=</button>
+            <button type="button" id="a" onclick="cl()">CLEAR</button>
+           
+        </div>
+       </div>
+
+   
+ 
+        <br>
+        <br>
+        
+
+        <div class="Grade">
+            <div class="book1">
+                <h2><u>Result Finder System</u></h2>
+                <label>Bangla</label>
+                <input id="bookOne" type="number" name="" placeholder="marks">
+            </div>
+            <br>
+
+            <div class="book2">
+                <label>English</label>
+                <input id="bookTwo" type="number" name="" placeholder="marks">
+            </div>
+            <br>
+
+            <div class="book3">
+                <label>Math</label>
+                <input id="bookThree" type="number" name="" placeholder="marks">
+            </div>
+            <br>
+
+            <div class="book4">
+                <label>ICT</label>
+                <input id="bookFour" type="number" name="" placeholder="marks">
+            </div>
+            <br>
+
+            <div class="book5">
+                <label>Physics</label>
+                <input id="bookFive" type="number" name="" placeholder="marks">
+            </div>
+            <br>
+          <button onclick="calculate()">Calculator</button>
+            <br>
+
+            <label id="tal">Totals Marks:</label>
+            <br>
+            <label id="ob">Obtainet marks:</label>
+            <br>
+            <label id="per">Percentage:</label>
+            <br>
+            <label id="grade">Grade:</label>
+            <br>
+            <label id="re">Remark:</label>
+      
+        </div>
+            
+          
+       
+
+
+    
+
+    <script>
+          function bgc(){
+                document.getElementById('a').style.backgroundColor = 'aqua';
+            }
+
+        function setinput(a){
+            let x = document.getElementById('n');
+            x. value += a;
+        }
+    
+        function setop(b){
+            let y = document.getElementById('n');
+            y. value += b
+        }
+    
+        function cl(){
+            let z = '';
+            document.getElementById('n').value = z;
+    
+        }
+    
+        function cal(){
+            let  r = document.getElementById('n');
+        let result = eval(r.value);
+        document.getElementById('n').value = result;
+    
+        }
+    
+     
+
+
+
+
+    function calculate(){
+            var a=parseInt(document.getElementById('bookOne').value);
+            var b=parseInt(document.getElementById('bookTwo').value);
+            var c=parseInt(document.getElementById('bookThree').value);
+            var d=parseInt(document.getElementById('bookFour').value);
+            var e=parseInt(document.getElementById('bookFive').value);
+            if (a>100 || b>100 || c>100 || d>100 || e>100) {
+                alert("please enter correct value");
+            }
+            else
+            {
+                var ob = a + b + c + d + e;
+                document.getElementById("ob").innerHTML=ob;
+                var per=ob/500*100;
+                document.getElementById("per").innerHTML=per;
+                if (a>40 && b>40 && c>40 && d>40 && e>40){
+                    document.getElementById("re").innerHTML="Pass";
+                }
+                else
+                {
+                    document.getElementById("re").innerHTML="Fail";
+                }
+                if (ob>=80) {
+                    document.getElementById("grade").textContent="A";
+                }
+                else if (ob>=70) {
+                    document.getElementById("grade").textContent="B";
+                }
+                else if (ob>=60) {
+                    document.getElementById("grade").textContent="C";
+                }
+                else if (ob>=50) {
+                    document.getElementById("grade").textContent="D";
+                }
+                else if (ob>=40) {
+                    document.getElementById("grade").textContent="E";
+                }
+                else
+                {
+                    document.getElementById("grade").textContent="F";
+                }
+
+            }
+           
+        }
+
+
+
+
+
+
+
+    </script>
+
+    
+</body>
+</html>
